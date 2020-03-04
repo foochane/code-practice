@@ -7,6 +7,7 @@
  *
  * 20200304
  */
+
 public class ReplaceSpace {
     //按字符遍历，会把新插入的 %20也遍历
     public static String replaceSpace1(StringBuffer str) {
