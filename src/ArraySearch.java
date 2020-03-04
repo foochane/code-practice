@@ -11,7 +11,7 @@
 
 public class ArraySearch {
 
-    //暴力查找
+    //1 暴力查找
     public boolean Find1(int target, int [][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
@@ -23,7 +23,7 @@ public class ArraySearch {
         return false;
     }
 
-    //从最左下角开始查找
+    //2 从最左下角开始查找
     //每一行，左边的小于右边的
     //每一列，上边的小于下边的
     public static boolean Find2(int target, int [][] array) {
