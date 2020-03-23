@@ -1,4 +1,4 @@
-package _6_旋转数组的最小数字;
+package _06_旋转数组的最小数字;
 
 
 public class Main {
