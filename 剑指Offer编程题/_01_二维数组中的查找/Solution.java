@@ -27,7 +27,7 @@ public class Solution {
     //2 从最左下角开始查找
     //每一行，左边的小于右边的
     //每一列，上边的小于下边的
-    public static boolean Find2(int target, int[][] array) {
+    public boolean Find2(int target, int[][] array) {
         int m = array.length; //行数
         int n = array[0].length; //列数
         int i = m - 1;
