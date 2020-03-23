@@ -1,3 +1,5 @@
+package _03_从尾到头打印链表;
+
 /**
  * 《剑指Offer_编程题-从尾到头打印链表》
  * 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
@@ -6,9 +8,6 @@
  *
  * 20200303
  */
-
-package _03_从尾到头打印链表;
-
 import java.util.ArrayList;
 import java.util.Stack;
 
