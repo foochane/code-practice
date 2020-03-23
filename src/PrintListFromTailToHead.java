@@ -20,7 +20,7 @@ class ListNode {
 }
 
 
-class Solution {
+class SolutionPrintListFromTailToHead {
 
     //listNode 是链表，只能从头遍历到尾，题目要求从尾到头打印
 
@@ -72,7 +72,7 @@ public class PrintListFromTailToHead {
         l2.next = l3;
         l3.next = l4;
 
-        Solution s = new Solution();
+        SolutionPrintListFromTailToHead s = new SolutionPrintListFromTailToHead();
         System.out.println(s.printListFromTailToHead3(listNode));
     }
 }
