@@ -1,3 +1,5 @@
+package _01_二维数组中的查找;
+
 /**
  * 《剑指Offer_编程题-二维数组中的查找》
  * 在一个二维数组中（每个一维数组的长度相同），
@@ -8,9 +10,6 @@
  *
  * 20200303
  */
-
-package _01_二维数组中的查找;
-
 public class Solution {
     //1 暴力查找
     public boolean Find1(int target, int[][] array) {
