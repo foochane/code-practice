@@ -2,6 +2,7 @@ package _13_调整数组顺序使奇数位于偶数前面;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ import java.util.List;
 public class Solution {
 
     // 方法一
+    // 用两个list存储奇数和偶数然后合并
     public void reOrderArray(int [] array) {
 
         List<Integer> list1 = new ArrayList<>();
@@ -40,5 +42,55 @@ public class Solution {
     }
 
     // 方法二
+    // 从左往右找array[i]为偶数的i，先让j=i，往右边继续找奇数，如果有奇数array[j]，j=奇数的下标，
+    // array[i]与array[j]互换位置
+    public void reOrderArray2(int [] array) {
+        int i = 0;
+        int j;
+        int temp;
+        while(i<array.length-1){
+
+            if(array[i]%2 != 0){
+                i++;
+                continue;
+            }
+            j = i;
+            for (int x = j+1; x < array.length; x++){
+                if(array[x]%2 != 0){
+                    j = x;
+                    break;
+                }
+            }
+            while (i<j){
+                temp = array[j];
+                array[j] = array[j-1];
+                array[j-1] = temp;
+                j--;
+            }
+
+            i++;
+        }
+    }
+
+    // 方法三
+    // 从左往右找，遇到左边是偶数，右边是奇数，就把这两个数互换位置
+    public void reOrderArray3(int [] array){
+        int temp;
+        int i = 0;
+        while ( i < array.length -1) {
+            if(array[i]%2 == 0 && array[i+1]%2 == 1){
+                temp = array[i+1];
+                array[i+1] = array[i];
+                array[i] = temp;
+                i = 0;
+                continue;
+            }
+            i++;
+        }
+
+        System.out.println(Arrays.toString(array));
+    }
+
+
 
 }
