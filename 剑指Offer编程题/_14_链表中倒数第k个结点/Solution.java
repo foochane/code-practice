@@ -1,5 +1,7 @@
 package _14_链表中倒数第k个结点;
 
+import java.util.Stack;
+
 /**
  *
  * 输入一个链表，输出该链表中倒数第k个结点。
@@ -37,7 +39,7 @@ public class Solution {
         return head;
     }
 
-    // 方法一 取两个指针，第一个指针在链表的第1个位置，第2个指针在链表的第k+1个位置
+    // 方法二 取两个指针，第一个指针在链表的第1个位置，第2个指针在链表的第k+1个位置
     // 两个指针同时往后移动，第2个指针刚指向null时，第1个节点指向倒数第k个节点
     // 如果链表的长度是n，则倒数第k个节点就是正数第n-k个节点
     public ListNode FindKthToTail2(ListNode head, int k) {
@@ -66,5 +68,32 @@ public class Solution {
         }
         return node1;
 
+    }
+
+    // 方法三 使用堆栈存
+    public ListNode FindKthToTail3(ListNode head, int k) {
+
+        if(k<=0){ // 0,{1,2,3,4,5}
+            return null;
+        }
+        Stack<ListNode> stack  = new Stack<>();
+        while (head!=null){
+            stack.push(head);
+            head = head.next;
+        }
+
+        int i = 1;
+        while (i<=k-1){
+            if(stack.isEmpty()){
+                return null;
+            }
+            stack.pop();
+            i++;
+        }
+
+        if(stack.isEmpty()){
+            return null;
+        }
+        return stack.pop();
     }
 }
