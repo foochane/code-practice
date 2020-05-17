@@ -19,6 +19,50 @@ import java.util.ArrayList;
 public class Solution {
     public ArrayList<Integer> printMatrix(int [][] matrix) {
 
-        return null;
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        int m,n,x;
+        m = matrix.length; // 行
+        n = matrix[0].length; // 列
+
+        int i = 0,j = 0;
+        while (m > 0 && n > 0){
+
+            // 如果只有一行或者一列
+            if(m == 1 | n == 1) {
+                for (int a = 0; a < m; a++) {
+                    for (int b = 0; b < n; b++) {
+                        list.add(matrix[i + a][j + b]);
+                    }
+                }
+                break;
+            }
+            // 上
+            for (x = 0; x <= n-1; x++) {
+                list.add(matrix[i][j+x]);
+            }
+            j = j+x-1;
+
+            // 右
+            for (x = 1; x <= m-1; x++){
+                list.add(matrix[i+x][j]);
+            }
+            i = i+x-1;
+
+            // 下
+            for(x= 1; x <= n-1; x++){
+                list.add(matrix[i][j-x]);
+            }
+            j = j-x+1;
+
+            // 左
+            for (x = 1; x <= m -2; x++){
+                list.add(matrix[i-x][j]);
+            }
+            i = i -x+1;
+            j++;
+            n = n-2;
+            m = m-2;
+        }
+        return list;
     }
 }
