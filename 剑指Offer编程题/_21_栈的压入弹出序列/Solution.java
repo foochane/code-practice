@@ -1,4 +1,4 @@
-package _22_栈的压入弹出序列;
+package _21_栈的压入弹出序列;
 
 import java.util.Stack;
 
