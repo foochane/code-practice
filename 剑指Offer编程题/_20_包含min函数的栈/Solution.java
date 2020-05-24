@@ -33,10 +33,9 @@ public class Solution {
     }
 
     public void pop() {
-        if(!stack.isEmpty()) {
-            stack.pop();
-            min.pop();
-        }
+        stack.pop();
+        min.pop();
+
     }
 
     public int top() {
