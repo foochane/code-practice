@@ -29,7 +29,7 @@ public class Solution {
         if(root == null) return false;
         sum -=root.val;
         if(root.left == null && root.right == null) return sum == 0;
-        return hasPathSum(root.left, sum) || hasPathSum(root.left, sum);  // 这的 || 运算很关键
+        return hasPathSum(root.left, sum) || hasPathSum(root.right, sum);  // 这的 || 运算很关键
 
     }
 }
