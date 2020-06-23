@@ -1,4 +1,4 @@
-package 只出现过一次的数组;
+package 只出现过一次的数;
 
 import java.util.*;
 
