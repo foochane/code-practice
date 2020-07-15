@@ -1,27 +1,16 @@
-package 相邻链表反转;
-/**
- *
- * 题目：将一个单项链表中，每两个节点进行翻转
- * 输入：1->2->3->4->5->6
- * 输出：2->1->4->3->6->5
- *
- * 20200623
- */
+package _24_两两交换链表中的节点;
 
-
-import java.util.*;
+import java.util.Scanner;
 
 class ListNode{
     int val;
     ListNode next;
     ListNode(int x){
-        this.val = x;
+        val = x;
     }
 }
-
-public class Main{
-    public static void main(String args[]){
-
+public class Main {
+    public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
 
         String[] num = cin.nextLine().split(" ");
@@ -35,20 +24,8 @@ public class Main{
             cur  = cur.next;
         }
 
-        // 相邻链表反转
-        ListNode reHead = new ListNode(-1);
-        reHead.next = head;
-        cur = reHead;
-        while(cur.next != null && cur.next.next != null){
-            ListNode temp = cur.next;
-            cur.next = temp.next;//
-            temp.next = cur.next.next ;
-            cur.next.next = temp;
-            cur = temp;
-        }
-
         // 反转后的链表cur
-        cur = reHead.next;
+        cur = swapPairs(head);
 
         //输出链表
         while(cur != null){
@@ -60,4 +37,21 @@ public class Main{
         }
     }
 
+    public static ListNode swapPairs(ListNode head) {
+        // 相邻链表反转
+        ListNode reHead = new ListNode(-1);
+        ListNode cur = head;
+        reHead.next = head;
+        cur = reHead;
+        while(cur.next != null && cur.next.next != null){
+            ListNode temp = cur.next;
+            cur.next = temp.next;//
+            temp.next = cur.next.next ;
+            cur.next.next = temp;
+            cur = temp;
+        }
+
+        // 反转后的链表
+        return reHead.next;
+    }
 }
