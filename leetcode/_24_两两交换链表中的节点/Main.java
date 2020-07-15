@@ -1,5 +1,6 @@
 package _24_两两交换链表中的节点;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 class ListNode{
@@ -25,7 +26,7 @@ public class Main {
         }
 
         // 反转后的链表cur
-        cur = swapPairs(head);
+        cur = swapPairs2(head);
 
         //输出链表
         while(cur != null){
@@ -37,21 +38,39 @@ public class Main {
         }
     }
 
-    public static ListNode swapPairs(ListNode head) {
-        // 相邻链表反转
-        ListNode reHead = new ListNode(-1);
-        ListNode cur = head;
-        reHead.next = head;
-        cur = reHead;
-        while(cur.next != null && cur.next.next != null){
+
+    // 使用递归
+    public static ListNode swapPairs1(ListNode head){
+        if(head == null || head.next == null) return head;
+        ListNode firstNode = head;
+        ListNode secondNode = head.next;
+
+        // 交换 顺序不能颠倒！！！！！
+        firstNode.next = swapPairs1(secondNode.next);
+        secondNode.next = firstNode;
+
+        return  secondNode;
+    }
+
+    public static ListNode swapPairs2(ListNode head){
+        if(head == null || head.next == null) return  head;
+
+        ListNode swapNode = new ListNode(-1);
+        swapNode.next = head;
+        ListNode cur = swapNode;
+
+        // -1 1 2 3 4 5 6
+        while (cur.next != null && cur.next.next != null ){
             ListNode temp = cur.next;
-            cur.next = temp.next;//
-            temp.next = cur.next.next ;
+            cur.next = temp.next;
+            temp.next = cur.next.next;
             cur.next.next = temp;
             cur = temp;
-        }
 
-        // 反转后的链表
-        return reHead.next;
+
+        }
+        return swapNode.next;
     }
+
+
 }
