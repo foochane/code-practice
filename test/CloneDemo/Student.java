@@ -26,6 +26,7 @@ public class Student implements Cloneable{
         this.name = name;
     }
 
+
     public Teacher getTeacher() {
         return teacher;
     }

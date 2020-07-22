@@ -1,3 +1,5 @@
+package Collection;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 
