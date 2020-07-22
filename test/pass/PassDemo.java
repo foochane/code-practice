@@ -3,6 +3,11 @@ package pass;
 
 import java.util.Arrays;
 
+
+/**
+ * 验证java是值传递还引用传递
+ * https://foochane.cn/article/2020072101.html
+ */
 public class PassDemo {
     public static void main(String[] args) {
         int a = 1;

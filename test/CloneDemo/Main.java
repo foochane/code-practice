@@ -1,5 +1,10 @@
 package CloneDemo;
 
+
+/**
+ * 深拷贝和浅拷贝
+ * https://foochane.cn/article/2020072001.html
+ */
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
 
