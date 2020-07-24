@@ -1,8 +1,6 @@
 package 反射.使用反射来实现动态代理;
 
 
-import OverrideAndOverload.A;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
