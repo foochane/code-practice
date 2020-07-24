@@ -12,6 +12,8 @@ public class test {
         list1.add(2);
         System.out.println(list);
         System.out.println(list1);
+
+
     }
 }
 
