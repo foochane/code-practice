@@ -1,6 +1,7 @@
 package _22_括号生成;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -53,6 +54,7 @@ public class Main {
         }
 
         //3 处理当前层逻辑
+
 
 
         //4 下一层逻辑
