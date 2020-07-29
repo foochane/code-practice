@@ -1,42 +1,49 @@
-
-
 import java.util.*;
-
+import java.util.concurrent.ConcurrentHashMap;
 
 public class test {
 
-
     public static void main(String[] args) {
-        int amount = 5;
-        int coins[] = {1, 2, 5};
+        HashSet<Integer> hashSet = new HashSet<>();
+        TreeSet<Integer> treeSet = new TreeSet<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        LinkedHashSet<Integer> linkedHashSet = new LinkedHashSet<>();
 
+        hashSet.add(3);
+        treeSet.add(3);
+        linkedHashSet.add(3);
 
-        System.out.println(change(amount, coins));
-        System.out.println(set.toString());
+        hashSet.add(2);
+        treeSet.add(2);
+        linkedHashSet.add(2);
 
+        hashSet.add(5);
+        treeSet.add(5);
+        linkedHashSet.add(5);
+
+        hashSet.add(1);
+        treeSet.add(1);
+        linkedHashSet.add(1);
+
+        System.out.println(hashSet.toString());
+        System.out.println(treeSet.toString());
+        System.out.println(linkedHashSet.toString());
+
+        TreeMap<Integer, Integer> treeMap = new TreeMap<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });
 
     }
 
 
-    private static Set<Integer> set = new HashSet<>();
-    public static int change(int amount, int[] coins) {
-
-        recur(0, "" , amount, coins);
-        return set.size();
-    }
-
-    public static void recur(int curAmount, String str, int amount, int[] coins){
-        if(curAmount == amount){
-            System.out.println(str);
-            set.add(str.length());
-            return;
-        }
-        if(curAmount > amount) return;
-
-        for(int coin : coins){
-            recur(curAmount + coin, str + coin, amount, coins);
-        }
-    }
 }
+
 
 
