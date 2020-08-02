@@ -1,71 +1,33 @@
 package 数组按正负排列;
 
-import java.util.Arrays;
+
+import java.util.LinkedList;
+import java.util.Scanner;
 
 /**
- * 输入一个数组按正负正负排列
+ * 输入一个数组按正负正负排列，不改变正负数之间的相对位置
  */
 public class Main {
+
     public static void main(String[] args) {
-        int[] num = {-1,2,-2,-3,4,5,7};
-        getSort1(num);
-        System.out.println(Arrays.toString(num));
-    }
+        Scanner sc = new Scanner(System.in);
+        int n = sc. nextInt();
+        if(n <= 0) return;
+        LinkedList<Integer> list = new LinkedList();
+        int[] nums = new int[n];
 
-    private static void getSort(int[] num) {
-        int len = num.length;
-        int front = 0, rear = 0;
-        while(rear < len - 1 && front < len - 1){
-            rear = front + 1;
-            if(front % 2 == 0){
-                if(num[front] < 0){
-                    while(num[rear] < 0) rear++;
-                    swap(num, front, rear);
-                }
+        nums[0] = sc.nextInt();
+
+        int k = 1;
+        for (int i = 1; i < n; i++) {
+            boolean ifPositive = nums[k - 1] > 0;
+            int num = sc.nextInt();
+            if(num > 0 == ifPositive && !list.isEmpty()){
+                nums[k++] = list.pollFirst();
+                continue;
             }else {
-                if(num[front] > 0){
-                    while(num[rear] < 0) rear++;
-                    swap(num, front, rear);
-                }
-            }
-            front++;
-        }
-    }
-
-    private static void getSort1(int[] num){
-
-        int len = num.length;
-        int index = 0;
-        while (index < len -1){
-
-            if(num[index] < 0){
-                int temp = find(index,num,true);
-                swap(num,index,temp);
-            }
-
-            if(num[index + 1] > 0){
-                int temp = find(index,num,false);
-                swap(num,index,temp);
-            }
-            index +=2;
-        }
-    }
-
-    private static int find(int index, int[] num, boolean flag) {
-
-        for (int i = index + 1; i < num.length; i++) {
-            if(flag){
-                if(num[i] > 0) return i;
-            }else {
-                if(num[i] < 0) return i;
+                nums[k++] = sc.nextInt();
             }
         }
-        return -1;
-    }
-
-    public static void swap(int[] num, int left, int right){
-        int tmp = num[left];
-        num[left] = num[right];
-        num[right] = tmp;
     }
 }
