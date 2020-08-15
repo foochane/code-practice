@@ -1,6 +1,7 @@
 package _322_零钱兑换;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
@@ -28,10 +29,21 @@ public class Main {
 
     public static void main(String[] args) {
         int[] coins = {1, 2, 5};
-        int amount = 11;
-        System.out.println(coinChange(coins, amount));
+        int amount = 100;
+        //System.out.println(coinChange(coins, amount));
+
+        //dfs(coins, amount, new LinkedList<>());
+        //System.out.println( ans == Integer.MAX_VALUE ? -1 : ans);
+
+        System.out.println(bfs(coins, amount));
     }
 
+    /**
+     * 动态规划
+     * @param coins 硬币数组
+     * @param amount 要找零的总金额
+     * @return 最少的硬币个数
+     */
     public static int coinChange(int[] coins, int amount) {
         //总金额为 i 是的最少次数
         int dp[] = new int[amount + 1];
@@ -58,4 +70,58 @@ public class Main {
         return dp[amount];
 
     }
+
+    /**
+     * dfs
+     */
+    public static int ans = Integer.MAX_VALUE;
+    public static void dfs(int[] coins, int amount, LinkedList<Integer> cur){
+
+        if(amount == 0) ans = Math.min(ans, cur.size()); //amount为0, 和之前的ans比较，如果更小就保存
+        if(amount <= 0) return; //如果amount小于等于0，return
+
+        //减枝，如果cur的大小大于 ans 就没必要再递归了
+        if(ans != Integer.MAX_VALUE && cur.size() >= ans) return;
+
+        for(int i = coins.length - 1; i >= 0; i--){
+            cur.addLast(coins[i]);
+            dfs(coins, amount - coins[i], cur);
+            cur.removeLast();
+        }
+    }
+
+    /**
+     * bfs  会超时
+     */
+    public static int bfs(int[] coins, int amount){
+        LinkedList<Integer> list = new LinkedList<>();
+
+        list.addLast(amount); //第一层
+        int level = 0;
+        boolean isFind = false;
+
+        while (!isFind && !list.isEmpty()){
+            level++;
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+
+                Integer temp = list.pollFirst();
+                if(temp != null && temp == 0) {
+                    isFind = true;
+                    break;
+                }
+
+                if(temp != null && temp > 0){
+                    for(int coin : coins){
+                        list.addLast(temp - coin);
+                    }
+                }
+            }
+
+
+        }
+        return isFind ? level - 1 : -1;
+    }
+
+
 }
