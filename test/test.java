@@ -1,22 +1,16 @@
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.Scanner;
 
 public class test {
 
-    public static void main(String[] args) {
-        Set<Integer> set = new TreeSet<>();
-
-        set.add(100);
-        set.add(1);
-        set.add(3);
-        set.add(5);
-        set.add(22);
-        set.add(4);
-        set.add(8);
-        System.out.println(set);
+    public static void main(String[] agrs){
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNextInt()){
+            System.out.println(sc.nextInt());
+        }
     }
 
-}
 
+
+}
 
 
