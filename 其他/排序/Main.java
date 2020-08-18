@@ -10,15 +10,14 @@ public class Main {
     //https://mp.weixin.qq.com/s?subscene=23&__biz=MzIxMjE5MTE1Nw==&mid=2653200809&idx=1&sn=44ed67f5382b0aea78867b41e92bf3e3&chksm=8c99d373bbee5a653932f01581a8cacbbeaf565b71b7df4698af43d5eabc75e3443d3c80e0ed&scene=7&key=30d2bdb92208469284847777f6a457f74b4c95bbf64fd115e624d086a0c0f2b8f5167cf73dbaba28135f197af87f7a81d6196919fcee8344837a763a40c074700e2c0d7038c854f909b44583f91bac15&ascene=0&uin=MTAzNTQ4NTcwMQ%3D%3D&devicetype=Windows+10+x64&version=62090529&lang=zh_CN&exportkey=AUeEUiq4JBLGecpY0v1sN1o%3D&pass_ticket=DhslL4UPb8CRHITXTHfU95ie11JZGSkZwum4z0YSYrFuYUmsmDZ6qNC7vgW89Y3R
 
     public static void main(String[] args) {
-        int[] arr = {3,5,1,4,8,9,10,32,2,81,99,12};
-//        int[] arr = {1,2,3,4,5,6,7,8,10,9};
+        //int[] arr = {3,5,1,4,8,9,10,32,2,81,99,12};
+        //int[] arr = {1,2,3,4,5,6,7,8,10,9};
+        int[] arr = {3,34,9,2,39,1,90};
 
         System.out.println(Arrays.toString(arr));
-        bubbleSort(arr);
-//        quickSort(arr,0, arr.length - 1);
+        //bubbleSort(arr);
+        quickSort(arr,0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
-
-//        System.out.println(Arrays.toString(ShellSort1(arr)));
     }
 
     // 冒泡排序
@@ -140,8 +139,6 @@ public class Main {
         quickSort(arr,pivotIndex + 1, right);
     }
     private static int partition(int[] arr, int left, int right) {
-        // left 必须小于 right
-        if(left > right) return -1;
 
         // 取第一个数为基准
         int pivotIndex = left;
@@ -149,20 +146,16 @@ public class Main {
 
         while (left < right){
             // 循环里面的left< right条件必须加上！！！
+            //基准选最左边的数据，必须先遍历右边！！！！
 
             // 从右边开始查找，如果大于基准就继续，否则就停止
-            while(left < right && arr[right] > pivot){
-                right--;
-            }
-            // 从右边开始查找，如果小于等于基准就继续，否则停止
-            while(left < right && arr[left] <= pivot){
-                left++;
-            }
+            while(left < right && arr[right] > pivot) right--;
+
+            // 从左边开始查找，如果小于等于基准就继续，否则停止
+            while(left < right && arr[left] <= pivot) left++;
 
             // 交换
-            if(left < right){
-                swap(arr, left, right);
-            }
+            if(left < right) swap(arr, left, right);
         }
 
         swap(arr, pivotIndex, left );
