@@ -1,6 +1,8 @@
 package B站笔试题20200813.question1;
 
 
+import java.util.Scanner;
+
 /**
  * 给出4个1—10的数字，通过加减乘除，得到数字24
  * 示例：
@@ -8,34 +10,41 @@ package B站笔试题20200813.question1;
  * 输出 true
  * 说明：7*2+1*10
  */
+
 public class Main {
+
+    public static boolean ans = false;
     public static void main(String[] args) {
-        int[] arr = {7, 2, 1, 10};
-        System.out.println(Game24Points(arr));
+        Scanner sc = new Scanner(System.in);
+        double result = 0.0;
+        int[] num = new int[4];
+
+        while(sc.hasNextInt()){
+            boolean[] visited = new boolean[4];
+            for(int i= 0;i < 4;i++){
+                num[i] = sc.nextInt();
+            }
+            check(num, visited, result);
+            System.out.println(ans);
+        }
+
+        sc.close();
 
     }
 
-    public static boolean Game24Points (int[] arr) {
-        // write code here
-        return recur(arr, new boolean[4], 0.0);
-    }
+    private static void check(int[] num,boolean[] visited,double result) {
+        if(result == 24) ans = true;
 
-    public static boolean recur(int[] arr, boolean[] visited, double result ){
-        int len = arr.length;
-        for(int i = 0; i < len; i++){
+        //不用设置终止条件， visited都为true就终止了
+        for(int i=0;i<num.length;i++){
             if(!visited[i]){
                 visited[i] = true;
-                if(recur(arr, visited, result + arr[i]) ||
-                        recur(arr, visited, result - arr[i]) ||
-                        recur(arr, visited, result * arr[i]) ||
-                        recur(arr, visited, result / arr[i])) return true;
-
+                check(num,visited,result+num[i]);
+                check(num,visited,result-num[i]);
+                check(num,visited,result*num[i]);
+                check(num,visited,result/num[i]);
                 visited[i] = false;
             }
         }
-        return 24 == result;
     }
-
-
-
 }
