@@ -1,7 +1,5 @@
 package 反射;
 
-import java.util.ArrayList;
-
 public class MyReflect {
     //静态方法
     public static void staticMd(){

@@ -8,6 +8,7 @@ import java.lang.reflect.Proxy;
 interface Animal{
     void eat();
 }
+
 class Dog implements Animal{
     @Override
     public void eat() {
@@ -41,6 +42,7 @@ class AnimalProxy implements InvocationHandler{
         return result;
     }
 }
+
 public class Main {
     public static void main(String[] args) {
         AnimalProxy proxy = new AnimalProxy();
