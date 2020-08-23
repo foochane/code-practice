@@ -1,4 +1,4 @@
-package CloneDemo;
+package 深拷贝和浅拷贝;
 
 public class Student implements Cloneable{
     int id;

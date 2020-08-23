@@ -1,4 +1,4 @@
-package Collection;
+package 集合;
 
 import java.util.Comparator;
 import java.util.LinkedList;

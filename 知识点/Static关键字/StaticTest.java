@@ -1,4 +1,4 @@
-package StaticTest;
+package Static关键字;
 
 /**
  * static 关键字

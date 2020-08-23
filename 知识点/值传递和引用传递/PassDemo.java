@@ -1,4 +1,4 @@
-package pass;
+package 值传递和引用传递;
 
 
 import java.util.Arrays;
@@ -26,7 +26,7 @@ public class PassDemo {
 
     private static void pass(int a, String str, int[] arr, Person person) {
         a = 2; // 没有改变main函数中a的值
-        str = "pass"; // 没有改变main函数中str的值
+        str = "值传递和引用传递"; // 没有改变main函数中str的值
         arr[0] = -1; // 将main函数中arr={1,2,3}改成了arr={-1,2,3}
 
         // 将main函数中Person{name='小王', age=20}改成了Person{name='老王', age=60}

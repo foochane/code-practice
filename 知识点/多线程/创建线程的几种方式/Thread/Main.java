@@ -1,6 +1,4 @@
-package Thread;
-
-import 反射.MyReflect;
+package 多线程.创建线程的几种方式.Thread;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;

@@ -1,4 +1,4 @@
-package lock;
+package 多线程.死锁;
 
 
 /**
