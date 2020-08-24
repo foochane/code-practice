@@ -1,4 +1,4 @@
-package 多线程.创建线程的几种方式.Thread;
+package 多线程.创建线程的几种方式;
 
 public class MyThread extends Thread{
     @Override

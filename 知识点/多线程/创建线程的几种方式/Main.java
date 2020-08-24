@@ -1,4 +1,4 @@
-package 多线程.创建线程的几种方式.Thread;
+package 多线程.创建线程的几种方式;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
