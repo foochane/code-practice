@@ -1,4 +1,4 @@
-package 反射;
+package 反射.反射获取对象的三种方法;
 
 public class MyReflect {
     //静态方法

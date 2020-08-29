@@ -1,4 +1,4 @@
-package 反射;
+package 反射.反射获取对象的三种方法;
 
 
 import java.lang.reflect.InvocationTargetException;
@@ -18,7 +18,7 @@ public class Main {
 
         //方法二：通过Class.forName("相对路径") 获取
         //注意处理ClassNotFoundException
-        Class class2 = Class.forName("反射.MyReflect");
+        Class class2 = Class.forName("反射.反射获取对象的三种方法.MyReflect");
 
 
         //方法三：通过类名获取
