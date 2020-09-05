@@ -38,10 +38,5 @@ public class Main {
         System.out.println(h == l); // true Integer自动拆箱
         System.out.println(j == l); // true Integer自动拆箱
 
-
-
-
-
-
     }
 }

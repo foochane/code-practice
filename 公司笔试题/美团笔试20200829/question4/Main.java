@@ -36,7 +36,6 @@ package 美团笔试20200829.question4;
  */
 
 //a了百分之18
-
 import java.util.Scanner;
 
 public class Main {
