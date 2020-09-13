@@ -30,7 +30,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<List<Integer>> ans = new ArrayList<>();
-        int[] nums = {1,2,3};
+        int[] nums = {1,2,3, 4 ,5 };
         recur(nums, 0, ans, new LinkedList<>());
         System.out.println(ans);
     }
