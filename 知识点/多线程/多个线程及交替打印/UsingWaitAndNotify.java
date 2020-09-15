@@ -7,7 +7,7 @@ package 多线程.多个线程及交替打印;
  */
 public class UsingWaitAndNotify {
 
-    private static Object obj = new Object();
+    private static final Object obj = new Object();
     static class MyThread extends Thread{
         @Override
         public void run() {
@@ -41,12 +41,12 @@ public class UsingWaitAndNotify {
         }
     }
     public static void main(String[] args) {
-//        for (int i = 0; i < 2; i++) {
+//        for (int i = 0; i < 3; i++) {
 //            MyRunnable r = new MyRunnable();
 //            new Thread(r).start();
 //        }
         for (int i = 0; i < 2; i++) {
-            new Thread().start();
+            new MyThread().start();
         }
 
     }
