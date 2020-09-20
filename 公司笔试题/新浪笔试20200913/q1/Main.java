@@ -69,6 +69,7 @@ public class Main {
         return  temp;
     }
 
+    //构造二叉树
     private static TreeNode createTree(int[] nums, int i) {
         int n = nums.length;
         if(i > n) return null;
