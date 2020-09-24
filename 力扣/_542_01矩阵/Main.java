@@ -85,10 +85,6 @@ public class Main {
                 }
             }
         }
-        String s = "223232";
-        long sd = 1000000000;
-
-        long ssfd = (long) Math.pow(3, 4);
 
         return matrix;
     }
