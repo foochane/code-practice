@@ -18,5 +18,8 @@ public class ArrayListDemo {
         for (int i = 0; i < a; i++) {
             arrayList1.add(i--);
         }
+        for (Integer integer : arrayList1) {
+            
+        }
     }
 }
